@@ -1,0 +1,80 @@
+{
+    "enable_gui": false,
+    "database_path": "/path/to/media/media_database.db",
+    "scan_interval_hours": 6,
+    "scan_time_of_day": "03:00",
+    "radarr_url": "http://YOUR_RADARR_IP:7878",
+    "radarr_api_key": "YOUR_RADARR_API_KEY_HERE",
+    "sonarr_url": "http://YOUR_SONARR_IP:8989",
+    "sonarr_api_key": "YOUR_SONARR_API_KEY_HERE",
+    "processed_tags": [
+        "AsyncTranscoderr",
+        "TdarrProcessed",
+        "HEVC_Processed"
+    ],
+    "global_source_paths": [
+        "/path/to/media/Movies",
+        "/path/to/media/Shows"
+    ],
+    "allowed_extensions": [
+        ".mp4", ".mkv", ".avi", ".webm", ".mpeg", ".m4v", ".ogm", ".mov", ".ts"
+    ],
+    "skip_terms": [
+        "TELESYNC", "DKS", "WWE", "onlyflix", "CinemaCity"
+    ],
+    "srt_clean_terms": [
+        "Downloaded from", "Official YIFY", "yts", "For best IPTV provider", "RESYNC BY"
+    ],
+    "servers": [
+        {
+            "id": "server_local_1",
+            "max_queue": 2,
+            "path_2a": "/path/to/media/downloads/processing1",
+            "path_2b": "/path/to/media/downloads/processing1",
+            "path_2c": "/path/to/media/downloads/completed1",
+            "path_failed": "/path/to/media/downloads/failed1",
+            "path_unmatched": "/path/to/media/downloads/unmatched"
+        },
+        {
+            "id": "server_remote_2",
+            "max_queue": 3,
+            "path_2a": "/path/to/media/downloads/incoming2",
+            "path_2b": "/path/to/remote/node/processing",
+            "path_2c": "/path/to/media/downloads/completed2",
+            "path_failed": "/path/to/media/downloads/failed2",
+            "path_unmatched": "/path/to/media/downloads/unmatched"
+        }
+    ],
+    "default_filter_config": {
+        "skip_if_tagged": ["AsyncTranscoderr", "TdarrProcessed", "HEVC_Processed"],
+        "skip_codecs": ["hevc", "h265"],
+        "min_size_bytes": 1048576,
+        "max_size_bytes": null,
+        "min_audio_channels": 1,
+        "min_height": null,
+        "max_height": null,
+        "min_width": null,
+        "max_width": null,
+        "modified_after_timestamp": null,
+        "modified_before_timestamp": null
+    },
+    "path_filter_rules": [
+        {
+            "paths": ["/path/to/media/Movies"],
+            "filter_config": {
+                "skip_if_tagged": ["AsyncTranscoderr", "TdarrProcessed", "HEVC_Processed"],
+                "skip_codecs": [],
+                "skip_terms": ["TELESYNC", "DKS"],
+                "min_size_bytes": 1048576,
+                "max_size_bytes": null,
+                "min_audio_channels": 2,
+                "min_height": 720,
+                "max_height": 2160,
+                "min_width": 1280,
+                "max_width": 3840,
+                "modified_after_timestamp": null,
+                "modified_before_timestamp": null
+            }
+        }
+    ]
+}

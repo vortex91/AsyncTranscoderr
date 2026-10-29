@@ -1,0 +1,37 @@
+{
+    "current_node_id": "node_remote_2",
+    "nodes": [
+        {
+            "id": "node_remote_2",
+            "local_mode": false,
+            "path_monitor": "/path/to/media/downloads/incoming2",
+            "path_stage_grab": "/path/to/node/scratch_incoming",
+            "path_process": "/path/to/remote/node/processing",
+            "path_stage_completed": "/path/to/node/scratch_completed",
+            "path_final_completed": "/path/to/media/downloads/completed2",
+            "path_stage_failed": "/path/to/node/scratch_failed",
+            "path_final_failed": "/path/to/media/downloads/failed2",
+            "ffmpeg_bin": "/usr/bin/ffmpeg",
+            "ffprobe_bin": "/usr/bin/ffprobe",
+            "log_file_path": "node_pipeline.log",
+            "log_max_bytes": 10485760,
+            "log_backup_count": 3,
+            "check_already_tagged": "strip_and_retag",
+            "tag_identifier": ["AsyncTranscoderr", "TdarrProcessed", "HEVC_Processed"],
+            "retag_identifier": "AsyncTranscoderr",
+            "crf": null,
+            "preset": "",
+            "audio_tracks": "keep_english_fallback_all",
+            "subtitle_tracks": "keep_english_and_forced",
+            "extra_ffmpeg_args": []
+        }
+    ],
+    "file_stability_wait_seconds": 5,
+    "poll_interval_seconds": 5,
+    "ffprobe_timeout_seconds": 10,
+    "backoff_delays": [10, 30, 120, 300, 900],
+    "skip_terms": ["TELESYNC", "DKS", "WWE"],
+    "srt_skip_terms": ["Downloaded from", "Official YIFY", "yts", "For best IPTV provider", "RESYNC BY"],
+    "high_priority_terms": ["MeGusta", "EZTV", "mSD", "2029", "2028", "2027", "2026", "2025"],
+    "medium_priority_terms": ["JFF", "RAWR", "NGP", "Minx", "PSA", "NeoNoir", "neonoir", "Rapta", "RmTeam", "Feranki", "fernaki", "s0", "s1", "s2", "s3", "s4", "s5"]
+}

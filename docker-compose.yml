@@ -1,0 +1,18 @@
+services:
+  asynctranscoderr:
+    image: ghcr.io/vortex91/asynctranscoderr:latest
+    container_name: asynctranscoderr
+    restart: unless-stopped
+    environment:
+      # Must match the "id" of the server block inside config_node_sa.json
+      - NODE_ID=node_1
+    volumes:
+      # 1. Maps the node-specific configuration file into the container working dir
+      - /DATA/AppData/asynch/config_node_sa.json:/app/config_node_sa.json
+      # 2. Maps the main configuration file (used by the Arr sync service)
+      - /DATA/AppData/asynch/config.json:/app/config.json
+      # 3. Maps the directory where the SQLite database lives so it persists on the host
+      - /DATA/AppData/asynch:/app/data
+      # 4. Maps your media library path so the container can read and write files
+      - /mnt/media:/mnt/media
+networks: {}

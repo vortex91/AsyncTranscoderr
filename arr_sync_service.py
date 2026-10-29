@@ -41,7 +41,7 @@ def load_config():
 
 config_data = load_config()
 
-DB_FILE_PATH = config_data.get("db_file_path", "media_database.db")
+DB_FILE_PATH = config_data.get("database_path", "media_database.db")
 
 RADARR_URL = os.getenv("RADARR_URL", config_data.get("radarr_url"))
 if RADARR_URL:
